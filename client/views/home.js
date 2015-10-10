@@ -32,6 +32,8 @@ Template.home.helpers({
 						}).fail(function(err) {
 					console.log(err);
 				});
-
-	}
+		Meteor.call('getUserFriends', function(error, result){
+			console.log(result);
+		});
+	}	
 });

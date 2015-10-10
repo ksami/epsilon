@@ -1,12 +1,9 @@
-Meteor.publish(null, function(){
-    return Meteor.users.find(this.userId);
-});
 
 Meteor.methods({
-    getUserFriends: function(callback){
-        if(Meteor.userId && Meteor.user() && Meteor.user().services && Meteor.user().services.facebook){
-            let fbId = Meteor.user().services.facebook.id;
-            let token = Meteor.user().services.facebook.accessToken;
+    getUserFriends: function(){
+        if(Meteor.userId && Meteor.user() && Meteor.user().services){
+            let fbId = Meteor.users.findOne(Meteor.user().profile.facebookId).services.facebook.id;
+            let token = Meteor.users.findOne(Meteor.user().profile.facebookId).services.facebook.accessToken;
             let FBGraphSync = Meteor.wrapAsync(FBGraph.get);
             let result = FBGraphSync(`/${fbId}/friends?access_token=${token}`);
             return result;
