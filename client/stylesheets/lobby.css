@@ -31,3 +31,47 @@
   color: #616161;
   width: 500px;
 }
+
+.user-friend {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.user-profile.border{
+  border: 1px solid #616161;
+}
+
+.add-input-field {
+  margin-top: 15px;
+}
+
+.modal {
+  color: rgba(0,0,0,0.87);
+}
+
+.modal .form-submit {
+  margin-right: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.user-container.pointer {
+  cursor: pointer;
+}
+
+.user-container.selected .user-profile {
+  border: 5px solid #00796b;
+}
+
+.user-container.selected p {
+  color: #00796b;
+}
+
+.lobby-card .card-image {
+  height: 200px;
+}
+
+.lobby-card .card-content {
+  min-height: 270px;
+  max-height: 340px;
+  overflow-y: auto;
+}

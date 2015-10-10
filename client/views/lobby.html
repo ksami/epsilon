@@ -5,7 +5,7 @@
     <div class="col l10 m9 s12">
       <div class="card big lobby-card">
 
-        <div class="card-image waves-effect waves-block waves-light" style="height: 200px;">
+        <div class="card-image waves-effect waves-block waves-light">
           <img src="imgs/food.jpg" style="opacity: 0.4;">
           <div class="card-logo">
             <img class="card-app-logo" src="imgs/logo.png">
@@ -15,28 +15,98 @@
 
         <div class="card-content">
 
-          <div class="row">
-            <div id="time-form" class="col s9 offset-s1 input-field">
-              <i class="material-icons prefix input-field-logo">alarm_on</i>
-              <input id="venue" type="number" class="validate" min="1" max="24">
-              <label for="venue">Time</label>
-            </div>
+          <div class="time-form-container form-container">
+            <div class="row time-form input-container">
+              <div id="time-input" class="col s9 offset-s1 input-field">
+                <select class="select-input">
+                  <option value="" disabled selected>Choose your time</option>
+                  <option value="0">12AM - 1AM</option>
+                  <option value="1">1AM - 2AM</option>
+                  <option value="2">2AM - 3AM</option>
+                  <option value="3">3AM - 4AM</option>
+                  <option value="4">4AM - 5AM</option>
+                  <option value="5">5AM - 6AM</option>
+                  <option value="6">6AM - 7AM</option>
+                  <option value="7">7AM - 8AM</option>
+                  <option value="8">8AM - 9AM</option>
+                  <option value="9">9AM - 10AM</option>
+                  <option value="10">10AM - 11AM</option>
+                  <option value="11">11AM - 12PM</option>
+                  <option value="12">12PM - 1PM</option>
+                  <option value="13">1PM - 2PM</option>
+                  <option value="14">2PM - 3PM</option>
+                  <option value="15">3PM - 4PM</option>
+                  <option value="16">4PM - 5PM</option>
+                  <option value="17">5PM - 6PM</option>
+                  <option value="18">6PM - 7PM</option>
+                  <option value="19">7PM - 8PM</option>
+                  <option value="20">8PM - 9PM</option>
+                  <option value="21">9PM - 10PM</option>
+                  <option value="22">10PM - 11PM</option>
+                  <option value="23">11PM - 12AM</option>
+                </select>
+              </div>
 
-            <div class="col s2">
-
+              <div class="col s2 button-container">
+                <a class="btn-floating waves-effect waves-light green darken-2 add-input-field">
+                  <i class="material-icons">add</i>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="row">
-            <div id="venue-form" class="col s9 offset-s1 input-field">
-              <i class="material-icons prefix input-field-logo">location_on</i>
-              <input id="venue" type="text" class="validate">
-              <label for="venue">Venue</label>
-            </div>
+          <div class="venue-form-container form-container">
+            <div class="row venue-form input-container">
+              <div id="venue-form" class="col s9 offset-s1 input-field">
+                <i class="material-icons prefix input-field-logo">location_on</i>
+                <input id="venue" type="text" class="validate">
+                <label for="venue">Venue</label>
+              </div>
 
-            <div class="col s1">
+              <div class="col s2 button-container">
+                <a class="btn-floating waves-effect waves-light green darken-2 add-input-field">
+                  <i class="material-icons">add</i>
+                </a>
+              </div>
             </div>
           </div>
+          <div id="remove-input-field" class="col s2 hide">
+            <a class="btn-floating waves-effect waves-light red darken-2 remove-input-field" onClick="removeInputField($(this))">
+              <i class="material-icons">delete</i>
+            </a>
+          </div>
+
+          <select id="select-input-clone" class="hide">
+            <option value="" disabled selected>Choose your time</option>
+            <option value="0">12AM - 1AM</option>
+            <option value="1">1AM - 2AM</option>
+            <option value="2">2AM - 3AM</option>
+            <option value="3">3AM - 4AM</option>
+            <option value="4">4AM - 5AM</option>
+            <option value="5">5AM - 6AM</option>
+            <option value="6">6AM - 7AM</option>
+            <option value="7">7AM - 8AM</option>
+            <option value="8">8AM - 9AM</option>
+            <option value="9">9AM - 10AM</option>
+            <option value="10">10AM - 11AM</option>
+            <option value="11">11AM - 12PM</option>
+            <option value="12">12PM - 1PM</option>
+            <option value="13">1PM - 2PM</option>
+            <option value="14">2PM - 3PM</option>
+            <option value="15">3PM - 4PM</option>
+            <option value="16">4PM - 5PM</option>
+            <option value="17">5PM - 6PM</option>
+            <option value="18">6PM - 7PM</option>
+            <option value="19">7PM - 8PM</option>
+            <option value="20">8PM - 9PM</option>
+            <option value="21">9PM - 10PM</option>
+            <option value="22">10PM - 11PM</option>
+            <option value="23">11PM - 12AM</option>
+          </select>
+
+          <p class="center-align">
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal">Create Lobby</a>
+          </p>
 
         </div>
       </div>
@@ -46,9 +116,11 @@
       <div class="side-bar z-depth-1">
         <div class="side-content">
           <div class="side-title">Friend List</div>
-          <!-- {{#each userFriends}}
-            {{> friend}}
-          {{/each}} -->
+          {{#each userFriends.data}}
+            <p>
+              {{> friend}}
+            </p>
+          {{/each}}
         </div>
       </div>
     </div>
@@ -58,22 +130,38 @@
     <div class="modal-content">
       <div class="row">
         <div class="col s10">
-          <h4>Create Lunch Lobby</h4>
+          <h4>Invite your friends</h4>
         </div>
         <div class="col s2">
-          <i class="mdi-navigation-close modal-close right closeSign"></i>
+          <i class="mdi-navigation-close modal-close right closeSign" style="font-size: 28px;"></i>
         </div>
+      </div>
+
+      <div class="row">
+        {{#each userFriends.data}}
+          <div class="col s3 center-align pointer user-container" data-id="{{id}}" onClick="toggleUserSelect($(this))">
+            {{> friendNameBottom}}
+          </div>
+        {{/each}}
       </div>
 
     </div>
 
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+      <a class="btn modal-action modal-close waves-effect waves-green form-submit">Submit</a>
     </div>
   </div>
 
+  <script type='text/javascript' src='/javascript/main.js'></script>
+
 </template>
 
-<!-- <template name="friend">
-  <p>{{}}
-</template> -->
+<template name="friend">
+  <img class="user-profile border" src="http://graph.facebook.com/{{id}}/picture?type=square"/>
+  <span class="user-friend">{{name}}</span>
+</template>
+
+<template name="friendNameBottom">
+  <img class="user-profile border" src="http://graph.facebook.com/{{id}}/picture?type=square"/>
+  <p class="user-friend" style="margin-top: 5px">{{name}}</p>
+</template>
