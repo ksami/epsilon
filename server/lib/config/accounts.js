@@ -6,8 +6,7 @@ Meteor.startup(function() {
     { service: "facebook" },
     { $set: {
         appId: Meteor.settings.FB_APPID,
-        secret: Meteor.settings.FB_SECRET,
-        requestPermissions: ['user_friends']
+        secret: Meteor.settings.FB_SECRET
       }
     },
     { upsert: true }
