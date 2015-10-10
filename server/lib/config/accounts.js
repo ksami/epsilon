@@ -38,7 +38,17 @@ Meteor.startup(function() {
 
 Meteor.publish(null, function() {
   return Meteor.users.find(this.userId, {
-
   });
 });
-
+  
+Meteor.users.allow({
+    'insert': function (userId,doc) {
+      /* user and doc checks ,
+      return true to allow insert */
+      if(userId == this.userId)
+      return true; 
+    },
+    'update':function(userId, doc) {
+      return true;
+    }
+  });
