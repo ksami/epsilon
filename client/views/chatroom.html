@@ -50,7 +50,24 @@
     <p class="note">* for any help return to adminstrator..</p>
   </div>
   
+  <!-- msgs from server -->
+  <div>
+    <ul>
+      {{#each msgs}}
+        {{> msg}}
+      {{/each}}
+    </ul>
+    <form class="new-msg">
+
+      <input type="text" name="msg" placeholder="Type to chat" />
+
+    </form>
+  </div>
   
 </div></div>
 
+</template>
+
+<template name="msg">
+  <li>{{createdAt}} | {{username}}: {{text}}</li>
 </template>
