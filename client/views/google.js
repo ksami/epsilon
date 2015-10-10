@@ -4,7 +4,7 @@ Template.google.events({
       if (err) {
         throw new Meteor.Error("Google login failed");
       } else {
-        Router.go('/');
+        Router.go('/main');
       }
     });
   },
