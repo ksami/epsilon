@@ -37,7 +37,7 @@ Meteor.startup(function() {
 // });
 
 Meteor.publish(null, function() {
-  return Meteor.users.find(this.userId, {
+  return Meteor.users.find({
   });
 });
   
