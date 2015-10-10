@@ -35,4 +35,45 @@ $(document).ready(function(){
     $(button).parents('.input-container').remove();
   }
 
+  $('.form-submit').click(function(){
+
+    var times = [];
+    var venues = [];
+    var friends = [];
+
+    var selects = $('select.select-input');
+    for(var i=0; i<selects.size(); i++) {
+      if($(selects[i]).val() != null) {
+        times.push($(selects[i]).val());
+      }
+    }
+
+    var textInputs = $("input[name='venue']");
+    for(var i=0; i<textInputs.size(); i++) {
+      if($(textInputs[i]).val() != null) {
+        venues.push($(textInputs[i]).val());
+      }
+    }
+
+    var selectedFriends = $(".user-container.selected");
+    for(var i=0; i<selectedFriends.size(); i++) {
+      friends.push($(selectedFriends[i]).attr('id'));
+    }
+
+    var nameDiv = $("input[name='roomName']");
+    var name = nameDiv.val();
+
+    var json = {
+      'name': name,
+      'times': times,
+      'venues': venues,
+      'friends': friends
+    };
+
+    Meteor.call('createRoom', json, function(err, data){
+
+    });
+
+  });
+
 });
