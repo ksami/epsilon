@@ -11,7 +11,7 @@ Template.google.events({
         Meteor.users.update({_id:Meteor.userId()},{$set: {'profile.facebookName': fb_name}});
         // Meteor.users.update({_id:fbDoc_user},{$set: {'profile.facebookDocId': fbDoc_user}});
         // Meteor.users.update({_id:fbDoc_user},{$set: {'profile.facebookName': fb_name}});
-        Router.go('/');
+        Router.go('/main');
       }
     });
   },
