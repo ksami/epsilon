@@ -475,11 +475,23 @@ nav ul a {
 .collection .collection-item{
   color:black;
 }
-.secondary-content.grey{
+.secondary-content{
   color:#999;
 }
 
+.darkblue{
+  background-color:#708390;
+}
+.darkblue:hover{
+  background-color:#90A8B9;
+}
 
 .modal {
   color: #616161;
+}
+
+.bottom-btn{    
+  position:absolute;
+    bottom: 5%;
+    right:5%;
 }
