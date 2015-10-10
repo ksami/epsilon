@@ -16,9 +16,14 @@ Meteor.methods({
         }
     },
 
-    getUserFacebookId: function(){
+    getUserFacebookPic: function(){
         if(Meteor.userId && Meteor.user() && Meteor.user().services && Meteor.user().services.facebook){
-            return Meteor.user().services.facebook.id;
+            let fbId = Meteor.user().services.facebook.id;
+            let fbName = Meteor.user().services.facebook.name;
+            let token = Meteor.user().services.facebook.accessToken;
+            let FBGraphSync = Meteor.wrapAsync(FBGraph.get);
+            let result = FBGraphSync(`/${fbId}/picture?access_token=${token}`);
+            return {name: fbName, picture: result.location};
         }
         else{
             return null;
