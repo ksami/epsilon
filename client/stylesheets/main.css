@@ -487,3 +487,9 @@ nav ul a {
 .modal {
   color: #616161;
 }
+
+.bottom-btn{    
+  position:absolute;
+    bottom: 5%;
+    right:5%;
+}
