@@ -28,5 +28,14 @@ Meteor.methods({
         else{
             return null;
         }
+    },
+    getUserGoogle: function() {
+      if(Meteor.userId && Meteor.user() && Meteor.user().services && Meteor.user().services.google){
+            console.log(Meteor.user());
+            return {email: Meteor.user().services.google.email};
+        }
+        else{
+            return null;
+        }
     }
 });

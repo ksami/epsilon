@@ -1,7 +1,7 @@
 // Set up login services
 Meteor.startup(function() {
   // Add Facebook configuration entry
-  
+
   ServiceConfiguration.configurations.update(
     { service: "facebook" },
     { $set: {
@@ -29,10 +29,16 @@ Meteor.startup(function() {
 
 
 
+// Meteor.publish(null, function() {
+//   return Meteor.users.find(this.userId, { fields: {
+//     'services.google.accessToken': 1,
+//     'services.google.expiresAt': 1
+//   }});
+// });
+
 Meteor.publish(null, function() {
-  return Meteor.users.find(this.userId, { fields: { 
-    'services.google.accessToken': 1, 
-    'services.google.expiresAt': 1 
-  }});
+  return Meteor.users.find(this.userId, {
+
+  });
 });
 
