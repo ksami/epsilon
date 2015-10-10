@@ -28,3 +28,4 @@ softwarerero:accounts-t9n # translation to other languages
 percolate:google-api
 http
 stevezhu:fbgraph
+momentjs:moment

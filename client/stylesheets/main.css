@@ -229,3 +229,220 @@ footer {
     font-size: 40px;
   }
 }
+
+/*chatroom*/
+.chatroom .header
+{
+  font-size:26px;
+  margin:0 auto;
+  text-align:center;
+  color:#9F6905;
+  font-weight:lighter;
+  background-color:#f0f0f0;
+  height:50px;
+  line-height:50px;
+  border-bottom:1px solid #9F6905;
+}
+.chatroom .container
+{
+  cursor:default;
+  background:#9F6905;
+  opacity: 0.9;
+  margin:20px auto;
+  overflow-y:scroll;
+}
+.chatroom .container::-webkit-scrollbar 
+{
+width: 3px;
+max-width: 3px;
+height: auto;
+max-height: 8px;
+}
+.chatroom .container::-webkit-scrollbar-thumb 
+{
+background: #f0f0f0;
+border-radius: 5px;
+max-width: 3px;
+}
+.chatroom .container::-webkit-scrollbar-track {
+background: #9F6905;
+  border-radius:5px;
+}
+.chatroom .area
+{
+  margin:0 auto;
+  width:400px;
+  background-color:rgba(240, 240, 240, 0.2);
+  display:table;
+  padding:5px;
+  border-radius:5px;
+  margin-bottom:10px;
+}
+.chatroom .l
+{
+  float:left;
+}
+.chatroom img
+{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:2px solid #f0f0ff;
+  padding:5px;    
+}
+.chatroom img:hover
+{
+    -moz-box-shadow: 0 5px 5px rgba(223, 120, 8, 1);
+-webkit-box-shadow: 0 5px 5px rgba(223, 120, 8, 1);
+box-shadow: 0 5px 5px rgba(223, 120, 8, 1);
+       -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    transition: all 1.5s;
+  cursor:pointer;
+}
+.chatroom .r
+{
+    float:right;
+}
+.chatroom .text
+{
+  color: #000;
+font-family: tahoma;
+font-size: 13px;
+  font-weight:lighter;
+line-height: 30px;
+  width:300px;
+  border:1px solid #f0f0f0;
+  background-color:rgba(255, 255, 255, 0.6);
+  margin-top:10px;
+  border-radius:5px;
+  padding:5px;  
+}
+.chatroom .area textarea
+{
+  font-size:12px;
+  width:100%;
+  padding:5%;
+  border-radius:5px;
+  border:1px solid #f0f0f1;
+  height:80px;
+  background-color:#333;
+  color:#000;
+  outline:none;
+  border:1px solid transparent;
+  resize:none;
+}
+.chatroom .area textarea:focus
+{
+  color:#000;
+  border:1px solid #ccc;
+     -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    transition: all 1.5s;
+  background-color:#fff;
+}
+.chatroom .area .note
+{
+  color:#9F6905;
+  font-size:10px;
+}
+.chatroom .r .tooltip
+{
+  font-size:10px;
+  position:absolute;
+  background-color:#fff;
+  padding:5px;
+  border-radius:5px;
+  border:2px solid #9F6905;
+  margin-left:70px;
+  margin-top:-70px;
+  display:none;
+  color:#545454;
+}
+.chatroom .r .tooltip:before
+{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border: 5px solid transparent;
+    border-right-color: #9F6905;
+    margin-top: 10px;
+    margin-left: -17px;
+}
+.chatroom .r:hover .tooltip
+{
+  display:block;
+}
+
+.chatroom .l .tooltip
+{
+  font-size:10px;
+  position:absolute;
+  background-color:#fff;
+  padding:5px;
+  border-radius:5px;
+  border:2px solid #9F6905;
+  margin-left:70px;
+  margin-top:-70px;
+  display:none;  
+  color:#545454;
+}
+.chatroom .l .tooltip:before
+{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border: 5px solid transparent;
+    border-right-color: #9F6905;
+    margin-top: 10px;
+    margin-left: -17px;
+}
+.chatroom .l:hover .tooltip
+{
+  display:block;
+}
+.chatroom a
+{
+  text-decoration:none;
+}
+
+.chatroom .area input[type=button]
+{
+  font-size:12px;
+  padding:5px;
+  border-radius:5px;
+  border:1px solid #f0f0f1;
+  background-color:#333;
+  color:#fff;
+  outline:none;
+  border:1px solid transparent;
+  float:left;
+}
+.chatroom .area input[type=button]:hover
+{
+  color:#fff;
+  border:1px solid #ccc;
+     -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    transition: all 1.5s;
+  background-color:#9F6905;
+} 
+.chatroom .validation
+{
+  float:left;
+  background-color:#ccc;
+  border-radius:5px;
+  padding:5px;
+  font-size:12px;
+  line-height:14px;
+  height:0px;
+  margin-left:5px;
+  display:none;
+}
+.chatroom br
+{
+  clear:both;
+  height:20px;
+}

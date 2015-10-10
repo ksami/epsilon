@@ -1,0 +1,3 @@
+Template.chatroom.events({
+  
+});
