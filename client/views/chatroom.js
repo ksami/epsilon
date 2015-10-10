@@ -1,6 +1,4 @@
 if(Meteor.isClient){
-  //DEBUG:
-  Session.set("current-room", "debug");
 
   Tracker.autorun(function () {
     Meteor.subscribe("chat", {roomId: Session.get("current-room")});

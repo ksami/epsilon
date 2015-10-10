@@ -1,7 +1,6 @@
 Meteor.methods({
     addMessage: function(msg, roomId){
         if(Meteor.userId && Meteor.user() && Meteor.user().profile){
-            console.log("helasdl");
             Messages.insert({
                 text: msg,
                 createdAt: new Date(),
