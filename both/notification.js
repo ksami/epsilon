@@ -1,0 +1,2 @@
+
+serverMessages = new ServerMessages();

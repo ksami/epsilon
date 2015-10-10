@@ -48,8 +48,5 @@ if(Meteor.isClient){
 				}
 			});
 		},
-		sendNotif: function(){
-			Notifications.addNotification("this is a notification", "my notification is saying BS", {type:3, userCloseable: true});
-		}
 	});
 }
