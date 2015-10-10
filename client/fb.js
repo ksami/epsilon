@@ -20,7 +20,6 @@ if(Meteor.isClient){
         if(err) {
             console.log(err);
         } else {
-            console.log(data);
             Session.set('userFriends', data);
         }
     });

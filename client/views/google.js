@@ -2,7 +2,7 @@ Template.google.events({
   'click #google-login': function(event) {
   	fbDoc_user = Meteor.userId();
   	fb_name = Meteor.user().services.facebook.name;
-    Meteor.loginWithGoogle({requestPermissions: ['https://www.googleapis.com/auth/calendar'], forceApprovalPrompt: true}, function(err){
+    Meteor.loginWithGoogle({requestPermissions: ['https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/userinfo.email'], forceApprovalPrompt: true}, function(err){
       if (err) {
         throw new Meteor.Error("Google login failed");
       } else {
