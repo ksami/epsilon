@@ -251,14 +251,14 @@ footer {
   margin:20px auto;
   overflow-y:scroll;
 }
-.chatroom .container::-webkit-scrollbar 
+.chatroom .container::-webkit-scrollbar
 {
 width: 3px;
 max-width: 3px;
 height: auto;
 max-height: 8px;
 }
-.chatroom .container::-webkit-scrollbar-thumb 
+.chatroom .container::-webkit-scrollbar-thumb
 {
 background: #f0f0f0;
 border-radius: 5px;
@@ -288,7 +288,7 @@ background: #9F6905;
   height:50px;
   border-radius:50%;
   border:2px solid #f0f0ff;
-  padding:5px;    
+  padding:5px;
 }
 .chatroom img:hover
 {
@@ -316,7 +316,7 @@ line-height: 30px;
   background-color:rgba(255, 255, 255, 0.6);
   margin-top:10px;
   border-radius:5px;
-  padding:5px;  
+  padding:5px;
 }
 .chatroom .area textarea
 {
@@ -385,7 +385,7 @@ line-height: 30px;
   border:2px solid #9F6905;
   margin-left:70px;
   margin-top:-70px;
-  display:none;  
+  display:none;
   color:#545454;
 }
 .chatroom .l .tooltip:before
@@ -428,7 +428,7 @@ line-height: 30px;
     -moz-transition: all 1.5s;
     transition: all 1.5s;
   background-color:#9F6905;
-} 
+}
 .chatroom .validation
 {
   float:left;
@@ -445,4 +445,8 @@ line-height: 30px;
 {
   clear:both;
   height:20px;
+}
+
+.modal {
+  color: #616161;
 }
