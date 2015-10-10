@@ -22,5 +22,5 @@ if(Meteor.isClient){
 				}
 			});
 		}
-		});
+	});
 }
