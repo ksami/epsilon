@@ -486,11 +486,7 @@ nav ul a {
   background-color:#90A8B9;
 }
 
-.modal {
-  color: #616161;
-}
-
-.bottom-btn{    
+.bottom-btn{
   position:absolute;
     bottom: 5%;
     right:5%;
