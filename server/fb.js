@@ -2,8 +2,8 @@
 Meteor.methods({
     getUserFriends: function(){
         if(Meteor.userId && Meteor.user() && Meteor.user().services){
-            let fbId = Meteor.users.findOne(Meteor.user().profile.facebookId).services.facebook.id;
-            let token = Meteor.users.findOne(Meteor.user().profile.facebookId).services.facebook.accessToken;
+            let fbId = Meteor.users.findOne(Meteor.user().profile.facebookDocId).services.facebook.id;
+            let token = Meteor.users.findOne(Meteor.user().profile.facebookDocId).services.facebook.accessToken;
             let FBGraphSync = Meteor.wrapAsync(FBGraph.get);
             let result = FBGraphSync(`/${fbId}/friends?access_token=${token}`);
             return result;
