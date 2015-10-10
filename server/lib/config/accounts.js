@@ -19,7 +19,8 @@ Meteor.startup(function() {
     { $set: {
         clientId: Meteor.settings.GOOGLE_APPID,
         client_email: Meteor.settings.GOOGLE_EMAIl,
-        secret: Meteor.settings.GOOGLE_SECRET
+        secret: Meteor.settings.GOOGLE_SECRET,
+        requestPermissions: ['https://www.googleapis.com/auth/calendar']
       }
     },
     { upsert: true }
