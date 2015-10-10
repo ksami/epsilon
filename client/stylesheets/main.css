@@ -22,7 +22,7 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 0px 20px;
 }
 
 .transparent-background {
@@ -457,7 +457,9 @@ line-height: 30px;
 }
 
 nav {
+  position: fixed;
   background:#fff;
+  z-index: 1000;
 }
 nav .brand-logo{
   color:#000;
