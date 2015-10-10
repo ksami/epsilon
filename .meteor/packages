@@ -25,3 +25,5 @@ accounts-facebook
 service-configuration
 materialize:materialize@=0.97.0
 softwarerero:accounts-t9n # translation to other languages
+percolate:google-api
+http
