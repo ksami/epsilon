@@ -2,11 +2,7 @@ $(document).ready(function(){
 
   $('.modal-trigger').leanModal();
 
-  $('select').material_select();
-
-  $('.user-container.pointer').click(function(){
-    $(this).toggleClass('selected');
-  });
+  $('.select-input').material_select();
 
   $('.form-container a.add-input-field').click(function(){
     var parent = $(this).parents('.form-container');
@@ -30,6 +26,10 @@ $(document).ready(function(){
     parent.append(clone);
 
   });
+
+  window.toggleUserSelect = function(button){
+    $(button).toggleClass('selected');
+  }
 
   window.removeInputField = function(button){
     $(button).parents('.input-container').remove();
