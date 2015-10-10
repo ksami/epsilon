@@ -14,7 +14,7 @@ html, body {
 
 #container {
   height: 100%;
-  background: url("imgs/background.jpg") no-repeat;
+  background: url("imgs/background1.jpg");
   margin: 0;
 }
 
@@ -51,7 +51,7 @@ html, body {
 .app-slogan {
   font-family: 'Open Sans', sans-serif;
   font-size: 60px;
-  color: #fff;
+  color: #000;
   text-shadow: 0 2px 3px rgba(0,0,0,.4);
   font-weight: 300;
 }
@@ -236,18 +236,15 @@ footer {
   font-size:26px;
   margin:0 auto;
   text-align:center;
-  color:#9F6905;
+  color:#24529A;
   font-weight:lighter;
   background-color:#f0f0f0;
   height:50px;
   line-height:50px;
-  border-bottom:1px solid #9F6905;
 }
 .chatroom .container
 {
   cursor:default;
-  background:#9F6905;
-  opacity: 0.9;
   margin:20px auto;
   overflow-y:scroll;
 }
@@ -264,14 +261,10 @@ background: #f0f0f0;
 border-radius: 5px;
 max-width: 3px;
 }
-.chatroom .container::-webkit-scrollbar-track {
-background: #9F6905;
-  border-radius:5px;
-}
 .chatroom .area
 {
   margin:0 auto;
-  width:400px;
+  width:100%;
   background-color:rgba(240, 240, 240, 0.2);
   display:table;
   padding:5px;
@@ -304,8 +297,8 @@ box-shadow: 0 5px 5px rgba(223, 120, 8, 1);
 {
     float:right;
 }
-.chatroom .text
-{
+.chatroom #l{
+  float:left;
   color: #000;
 font-family: tahoma;
 font-size: 13px;
@@ -314,6 +307,22 @@ line-height: 30px;
   width:300px;
   border:1px solid #f0f0f0;
   background-color:rgba(255, 255, 255, 0.6);
+  margin-left:10px;
+  margin-top:10px;
+  border-radius:5px;
+  padding:5px;
+}
+.chatroom #r{
+    float:right;
+  color: #000;
+font-family: tahoma;
+font-size: 13px;
+  font-weight:lighter;
+line-height: 30px;
+  width:300px;
+  border:1px solid #f0f0f0;
+  background-color:rgba(255, 255, 255, 0.6);
+  margin-right:10px;
   margin-top:10px;
   border-radius:5px;
   padding:5px;
@@ -326,7 +335,7 @@ line-height: 30px;
   border-radius:5px;
   border:1px solid #f0f0f1;
   height:80px;
-  background-color:#333;
+  background-color:rgba(255, 255, 255, 0.6);
   color:#000;
   outline:none;
   border:1px solid transparent;
@@ -343,7 +352,7 @@ line-height: 30px;
 }
 .chatroom .area .note
 {
-  color:#9F6905;
+  color:#000;
   font-size:10px;
 }
 .chatroom .r .tooltip
@@ -446,6 +455,28 @@ line-height: 30px;
   clear:both;
   height:20px;
 }
+
+nav {
+  background:#fff;
+}
+nav .brand-logo{
+  color:#000;
+}
+nav .brand-logo img{
+  height:50px;
+  margin-top:5px;
+  margin-left:5px;
+}
+nav ul a {
+  color:black;
+}
+.collection .collection-item{
+  color:black;
+}
+.secondary-content.grey{
+  color:#999;
+}
+
 
 .modal {
   color: #616161;
