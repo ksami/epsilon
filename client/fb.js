@@ -7,7 +7,7 @@ if(Meteor.isClient){
             console.log(data);
         }
     });
-    Meteor.call('getUserFacebookId', function(err, data){
+    Meteor.call('getUserFacebookPic', function(err, data){
         if(err){
             console.log(err);
         }
