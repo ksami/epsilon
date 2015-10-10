@@ -57,7 +57,7 @@ $(document).ready(function(){
 
     var selectedFriends = $(".user-container.selected");
     for(var i=0; i<selectedFriends.size(); i++) {
-      friends.push($(selectedFriends[i]).attr('id'));
+      friends.push($(selectedFriends[i]).attr('data-id'));
     }
 
     var nameDiv = $("input[name='roomName']");
