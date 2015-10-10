@@ -33,6 +33,16 @@ if(Meteor.isClient){
 				};
 				GoogleApi.post('calendar/v3/freeBusy', {user: currentFriend,  data: jsonBody}).then(function(result) {
 					console.log(result);
+					freeTime = [];
+					currenTime = moment().format();
+					for (var i = 0; i < result.calendars[currentFriendEmail].busy.length; i++) {
+						// console.log(result.calendars[currentFriendEmail].busy[i]);
+						if (currenTime != result.calendars[currentFriendEmail].busy[i].start)
+							freeTime.push({"startTime" : currenTime, "endTime" : result.calendars[currentFriendEmail].busy[i].start});
+						currenTime = result.calendars[currentFriendEmail].busy[i].end;
+					}
+					console.log(freeTime);
+					Session.set(currentFriendEmail+'freeTime', freeTime);
 				}).fail(function(err) {
 					console.log(err);
 				});
