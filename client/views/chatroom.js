@@ -17,8 +17,12 @@ if(Meteor.isClient){
     "submit .new-msg": function(event){
       event.preventDefault();
 
-      let msg = event.target.msg.value;
-      console.log(msg);
+      let msg = event.target.msg.value.trim();
+      if(msg !== ""){
+        Meteor.call("addMessage", msg, Session.get("current-room"));
+      }
+
+      event.target.msg.value = "";
     }
   });
 }
