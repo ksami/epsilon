@@ -16,8 +16,6 @@ Meteor.methods({
 	},
 	sendNotification: function(){
 		serverMessages.notify.apply(serverMessages,arguments);
-		console.log("inside send notif");
-		return "hahaha";
 	}
 });
 
