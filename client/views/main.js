@@ -8,6 +8,16 @@ if(Meteor.isClient){
   });
 
   Template.main.helpers({
+  	listenNotif:function(){
+            serverMessages.listen('serverMessage:info', function (subject, message, options) {
+            	console.log("heard something");
+              currentFbId = Meteor.users.findOne(Meteor.users.findOne(Meteor.userId()).profile.facebookDocId).services.facebook.id;
+              if(subject == currentFbId) {
+                  console.log(subject);
+                  Notifications.info(subject, message, options);
+              }
+      			});
+          },
 		getCal: function(){
 			userId = Meteor.userId();
 			var tz = jstz.determine();

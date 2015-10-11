@@ -5,6 +5,7 @@ Meteor.methods({
 				text: msg,
 				createdAt: new Date(),
 				owner: Meteor.userId(),
+				facebookId: Meteor.users.findOne(Meteor.user().profile.facebookDocId).services.facebook.id,
 				username: Meteor.user().profile.name,
 				roomId: roomId
 			});
@@ -13,8 +14,9 @@ Meteor.methods({
 			throw new Meteor.Error("not-logged-in", "User not logged in");
 		}
 	},
-	sendNotification: function(userList){
+	sendNotification: function(){
 		serverMessages.notify.apply(serverMessages,arguments);
+		console.log("inside send notif");
 		return "hahaha";
 	}
 });

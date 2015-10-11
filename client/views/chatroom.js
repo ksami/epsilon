@@ -9,6 +9,9 @@ if(Meteor.isClient){
     msgs: function(){
       return Messages.find({roomId: Meteor.user().profile.currentRoom});
     },
+    isOwner: function(ownerID) {
+      return ownerID == Meteor.userId();
+    },
     room: function(){
       return Rooms.find({_id: Meteor.user().profile.currentRoom});
     }
