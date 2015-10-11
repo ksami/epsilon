@@ -1,8 +1,6 @@
 if(Meteor.isClient){
   Template.main.events({
     "click .collection-item": function(event){
-      //DEBUG:
-      Session.set("current-room", "debug");
       Router.go('/chatroom');
     },
 
@@ -59,17 +57,42 @@ if(Meteor.isClient){
       $('#voteModal').openModal();
 
     },
+  });
 
-    "click .vote-form-submit": function(event) {
+  Template.main.onRendered(function(){
+    $(".vote-form-submit").click(function() {
+      let time = "";
+      let venue = "";
 
-    }
+      let timeSelect = $('#time-input');
+      for(let i=0; i<timeSelect[0].options.length; i++) {
+        if(typeof timeSelect[0].options[i].value !== 'undefined' && timeSelect[0].options[i].value !== "") {
+          time = timeSelect[0].options[i].value;
+        }
+      }
+
+      let venueSelect = $('#venue-input');
+      for(let i=0; i<venueSelect[0].options.length; i++) {
+        if(typeof venueSelect[0].options[i].value !== 'undefined' && venueSelect[0].options[i].value !== "") {
+          venue = venueSelect[0].options[i].value;
+        }
+      }
+
+      Meteor.call('addVote', {time: time, venue: venue}, function(err, data){
+        if(err){
+          console.log(err);
+        }
+      });
+
+    });
+
   });
 
   Template.main.helpers({
   	listenNotif:function(){
             serverMessages.listen('serverMessage:info', function (subject, message, options) {
               currentFbId = Meteor.users.findOne(Meteor.users.findOne(Meteor.userId()).profile.facebookDocId).services.facebook.id;
-              if(subject == currentFbId || true) {
+              if(subject == currentFbId) {
                   console.log(subject);
                   Notifications.info(subject, message, options);
               }

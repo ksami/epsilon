@@ -82,6 +82,9 @@ Template.lobby.onRendered(function() {
             console.log(err);
           }
         });
+        let fbfriend = Meteor.users.findOne({"services.facebook.id": json.friends[j]});
+        let googlefriend = Meteor.users.findOne({"profile.facebookDocId": fbfriend._id});
+        Meteor.users.update({_id:googlefriend._id},{$set: {'profile.currentRoom': data}});
       }
       Meteor.users.update({_id:Meteor.userId()},{$set: {'profile.currentRoom': data}});
       Router.go("/chatroom");
