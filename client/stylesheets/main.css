@@ -279,7 +279,7 @@ footer {
 
 .chatroom .text {
   font-family:'Open Sans', sans-serif !important;
-  font-size: 15px !important;
+  font-size: 18px !important;
 }
 
 .chatroom img
@@ -310,7 +310,6 @@ footer {
   font-weight:lighter;
   line-height: 30px;
   width:300px;
-  margin-left:10px;
   margin-top:10px;
   border-radius:5px;
   padding:5px;
@@ -319,11 +318,13 @@ footer {
   float:left;
   border:1px solid #f0f0f0;
   background-color:rgba(255, 255, 255, 0.6);
+  margin-left:10px;
 }
 .chatroom #r{
   float:right;
   border:1px solid #f0f0f0;
   background-color:rgba(255, 255, 255, 0.6);
+  margin-right: 10px;
 }
 .chatroom .area input[name='msg']
 {
@@ -348,6 +349,7 @@ footer {
   -moz-transition: all 1.5s;
   transition: all 1.5s;
   background-color:#fff;
+  box-shadow: none;
 }
 .chatroom .area .note
 {
@@ -453,6 +455,14 @@ footer {
 {
   clear:both;
   height:20px;
+}
+
+.chatroom .chat-username {
+  color: #1976d2;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  font-size: 15px;
 }
 
 nav {
