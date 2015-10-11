@@ -1,8 +1,10 @@
-Template.lobby.onRendered(function() {
-    $('.modal-trigger').leanModal();
-    $('.select-input').material_select();
+$(document).ready(function(){
 
-    $('.form-container a.add-input-field').click(function(){
+  $('.modal-trigger').leanModal();
+
+  $('.select-input').material_select();
+
+  $('.form-container a.add-input-field').click(function(){
     var parent = $(this).parents('.form-container');
     var div = parent.find('.input-container')[0];
     var clone = $(div).clone();
@@ -10,9 +12,7 @@ Template.lobby.onRendered(function() {
     if(parent.hasClass('time-form-container')) {
       clone.find('.select-input').remove();
       var selectClone = $('#select-input-clone').clone();
-      selectClone.removeClass('hide').addClass('select-input');
-      selectClone.removeAttr('id');
-
+      selectClone.removeClass('hide');
       var selectInputParent = clone.find('#time-input');
       selectInputParent.append(selectClone);
       $(selectClone).material_select();
@@ -69,22 +69,17 @@ Template.lobby.onRendered(function() {
       'venues': venues,
       'friends': friends
     };
-    Meteor.call('createRoom', json, function(err, data){  
-      for (var j = 0; j < json.friends.length; j++) {
-        var type = "info";
-        var subject = json.friends[j];
-        var message = "you are invited!";
-        Meteor.call('sendNotification', 'serverMessage:' + type, subject, message, {
-            userCloseable: true,
-            timeout: 0
-        }, function(err, data) {
-          if(err) {
-            console.log(err);
-          }
-        });
-      }
-      Session.set("current-room", data);
-      Router.go("/chatroom");
+
+    console.log("what");
+    Meteor.call('createRoom', json, function(err, data){
+      // Session.set("current-room", data);
+      // console.log(err);
+      // console.log(Meteor.userId());
+      console.log("hahahha");
+      // Meteor.users.update({_id:Meteor.userId()},{$set: {'profile.currentRoom': data}});
+      // Router.go("/chatroom");
     });
+
   });
+
 });

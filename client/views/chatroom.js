@@ -1,20 +1,19 @@
 if(Meteor.isClient){
-  Meteor.subscribe("rooms");
-  Tracker.autorun(function () {
-    Meteor.subscribe("chat", {roomId: Session.get("current-room")});
 
-    // Meteor.subscribe("privateMessages");
+  Tracker.autorun(function () {
+    Meteor.subscribe("chat", {roomId: Meteor.user().profile.currentRoom});
+    Meteor.subscribe("rooms");
   });
 
   Template.chatroom.helpers({
     msgs: function(){
-      return Messages.find({roomId: Session.get("current-room")});
+      return Messages.find({roomId: Meteor.user().profile.currentRoom});
     },
     isOwner: function(ownerID) {
       return ownerID == Meteor.userId();
     },
-    room: function() {
-      return Rooms.find({_id: Session.get("current-room")});
+    room: function(){
+      return Rooms.find({_id: Meteor.user().profile.currentRoom});
     }
   });
 
@@ -24,7 +23,7 @@ if(Meteor.isClient){
 
       let msg = event.target.msg.value.trim();
       if(msg !== ""){
-        Meteor.call("addMessage", msg, Session.get("current-room"));
+        Meteor.call("addMessage", msg, Meteor.user().profile.currentRoom);
       }
 
       event.target.msg.value = "";

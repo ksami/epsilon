@@ -14,9 +14,8 @@ Meteor.methods({
 			throw new Meteor.Error("not-logged-in", "User not logged in");
 		}
 	},
-	sendNotification: function(userList){
+	sendNotification: function(){
 		serverMessages.notify.apply(serverMessages,arguments);
-		return "hahaha";
 	}
 });
 
