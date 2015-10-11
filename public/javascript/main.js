@@ -69,12 +69,24 @@ $(document).ready(function(){
       'venues': venues,
       'friends': friends
     };
-
-    Meteor.call('createRoom', json, function(err, data){
+    Meteor.call('createRoom', json, function(err, data){  
+      console.log(json.friends);
+      for (var j = 0; j < json.friends.length; j++) {
+        console.log("looping");
+        var type = "info";
+        var subject = json.friends[j];
+        var message = "you are invited!";
+        Meteor.call('sendNotification', 'serverMessage:' + type, subject, message, {
+            userCloseable: true,
+            timeout: 0
+        }, function(err, data) {
+          if(err) {
+            console.log(err);
+          }
+        });
+      }
       Session.set("current-room", data);
       Router.go("/chatroom");
     });
-
   });
-
 });
