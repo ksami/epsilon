@@ -1,11 +1,15 @@
 <template name="chatroom">
   <h2 style="padding-top:60px; margin-top: 0px;"></h2>
   <div class="chatroom">
-    <div class="header"> Chat Room </div>
+    <div class="header"> Chat Room {{room.owner}} </div>
     <div class="container">
       {{#each msgs}}
         <div class="area">
-          {{> msgLeft}}
+          {{#if isOwner owner}}
+            {{> msgRight}}
+          {{else}}
+            {{> msgLeft}}
+          {{/if}}
         </div>
       {{/each}}
       <div class="area">
@@ -21,9 +25,9 @@
 <template name="msgLeft">
   <div class="l">
     <img src="imgs/male.jpg"/>
-    <div class="tooltip">{{name}}</div>
   </div>
   <div id="l" class="text r textR">
+    <p class="chat-username">{{username}}</p>
     {{text}}
   </div>
 </template>
@@ -31,7 +35,6 @@
 <template name="msgRight">
   <div class="r">
     <img src="imgs/male.jpg"/>
-    <div class="tooltip">{{name}}</div>
   </div>
   <div id="r" class="text l textL">
     {{text}}

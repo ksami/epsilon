@@ -5,6 +5,7 @@ Meteor.methods({
 				text: msg,
 				createdAt: new Date(),
 				owner: Meteor.userId(),
+				facebookId: Meteor.user().services.facebook.id,
 				username: Meteor.user().profile.name,
 				roomId: roomId
 			});
