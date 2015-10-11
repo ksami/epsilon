@@ -4,15 +4,70 @@ if(Meteor.isClient){
       //DEBUG:
       Session.set("current-room", "debug");
       Router.go('/chatroom');
+    },
+
+    "click li.notification": function(event) {
+      var roomId = $(event.target).parent().find('.message').html();
+      var timeSlots = [
+        '12AM - 1AM',
+        '1AM - 2AM',
+        '2AM - 3AM',
+        '3AM - 4AM',
+        '4AM - 5AM',
+        '5AM - 6AM',
+        '6AM - 7AM',
+        '7AM - 8AM',
+        '8AM - 9AM',
+        '9AM - 10AM',
+        '10AM - 11AM',
+        '11AM - 12PM',
+        '12PM - 1PM',
+        '1PM - 2PM',
+        '2PM - 3PM',
+        '3PM - 4PM',
+        '4PM - 5PM',
+        '5PM - 6PM',
+        '6PM - 7PM',
+        '7PM - 8PM',
+        '8PM - 9PM',
+        '9PM - 10PM',
+        '10PM - 11PM',
+        '11PM - 12AM'
+      ];
+
+      var data = Rooms.find({_id: roomId});
+
+      var times = data.times;
+      var venues = data.venues;
+
+      var timeSelectInput = $('select.time-select');
+      var venueSelectInput = $('select.venue-select');
+
+      for(var i=0; i<times.size(); i++) {
+        var timeSlot = parseInt(times[i]);
+        var html = $("<option value='" + timeSlot + "'>" + timeSlots[timeSlot] + "</option>");
+        timeSelectInput.append(html);
+      }
+
+      for(var i=0; i<venues.size(); i++) {
+        var html = $("<option value='" + venues[i] + "'>" + venues[i] + "</option>");
+        venueSelectInput.append(html);
+      }
+
+      $('#voteModal').openModal();
+
+    },
+
+    "click .vote-form-submit": function(event) {
+
     }
   });
 
   Template.main.helpers({
   	listenNotif:function(){
             serverMessages.listen('serverMessage:info', function (subject, message, options) {
-            	console.log("heard something");
               currentFbId = Meteor.users.findOne(Meteor.users.findOne(Meteor.userId()).profile.facebookDocId).services.facebook.id;
-              if(subject == currentFbId) {
+              if(subject == currentFbId || true) {
                   console.log(subject);
                   Notifications.info(subject, message, options);
               }

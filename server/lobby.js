@@ -13,6 +13,7 @@ Meteor.methods({
             return roomId;
         }
     }
+
 });
 
 Meteor.publish("roomers", function(){

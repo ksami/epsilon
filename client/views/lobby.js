@@ -73,7 +73,7 @@ Template.lobby.onRendered(function() {
       for (var j = 0; j < json.friends.length; j++) {
         var type = "info";
         var subject = json.friends[j];
-        var message = "you are invited!";
+        var message = [data];
         Meteor.call('sendNotification', 'serverMessage:' + type, subject, message, {
             userCloseable: true,
             timeout: 0

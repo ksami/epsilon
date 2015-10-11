@@ -3,8 +3,10 @@
   <div class="chatroom">
     <div class="header">
       {{#with room}}
-        {{name}}
-        {{friends}}
+        <h2> {{name}} </h2>
+        <p class="profile-pics">
+          {{friends}}
+        </p>
       {{/with}}
     </div>
     <div class="container">
