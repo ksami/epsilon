@@ -42,7 +42,7 @@ if(Meteor.isClient){
 
       var timeSelectInput = $('select.time-select');
       var venueSelectInput = $('select.venue-select');
-
+      
       for(var i=0; i<times.size(); i++) {
         var timeSlot = parseInt(times[i]);
         var html = $("<option value='" + timeSlot + "'>" + timeSlots[timeSlot] + "</option>");
