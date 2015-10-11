@@ -12,7 +12,9 @@ $(document).ready(function(){
     if(parent.hasClass('time-form-container')) {
       clone.find('.select-input').remove();
       var selectClone = $('#select-input-clone').clone();
-      selectClone.removeClass('hide');
+      selectClone.removeClass('hide').addClass('select-input');
+      selectClone.removeAttr('id');
+
       var selectInputParent = clone.find('#time-input');
       selectInputParent.append(selectClone);
       $(selectClone).material_select();
