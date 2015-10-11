@@ -70,9 +70,14 @@ $(document).ready(function(){
       'friends': friends
     };
 
+    console.log("what");
     Meteor.call('createRoom', json, function(err, data){
-      Session.set("current-room", data);
-      Router.go("/chatroom");
+      // Session.set("current-room", data);
+      // console.log(err);
+      // console.log(Meteor.userId());
+      console.log("hahahha");
+      // Meteor.users.update({_id:Meteor.userId()},{$set: {'profile.currentRoom': data}});
+      // Router.go("/chatroom");
     });
 
   });

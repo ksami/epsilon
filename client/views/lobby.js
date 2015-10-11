@@ -6,7 +6,7 @@ if(Meteor.isClient){
     Template.lobby.helpers({
         triggerNotif:function(){
             dataPack = [{"userEmail":"weijian19391@gmail.com", "timing":[1,2],"venue":["CBD", "NUS"]}];
-            console.log(dataPack);
+            // console.log(dataPack);
             var type = "info";
             var subject = "ksami.ihide@gmail.com";
             var message = "hahaha";
