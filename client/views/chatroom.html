@@ -1,7 +1,12 @@
 <template name="chatroom">
   <h2 style="padding-top:60px; margin-top: 0px;"></h2>
   <div class="chatroom">
-    <div class="header"> Chat Room {{room.name}} </div>
+    <div class="header">
+      {{#with room}}
+        {{name}}
+        {{friends}}
+      {{/with}}
+    </div>
     <div class="container">
       {{#each msgs}}
         <div class="area">

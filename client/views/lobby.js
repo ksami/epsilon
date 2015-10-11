@@ -83,7 +83,7 @@ Template.lobby.onRendered(function() {
           }
         });
       }
-      Session.set("current-room", data);
+      Meteor.users.update({_id:Meteor.userId()},{$set: {'profile.currentRoom': data}});
       Router.go("/chatroom");
     });
   });

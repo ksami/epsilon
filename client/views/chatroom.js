@@ -1,8 +1,10 @@
 if(Meteor.isClient){
 
   Tracker.autorun(function () {
-    Meteor.subscribe("chat", {roomId: Meteor.user().profile.currentRoom});
-    Meteor.subscribe("rooms");
+    if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.currentRoom){
+      Meteor.subscribe("chat", {roomId: Meteor.user().profile.currentRoom});
+    }
+    Meteor.subscribe("roomers");
   });
 
   Template.chatroom.helpers({
@@ -13,7 +15,8 @@ if(Meteor.isClient){
       return ownerID == Meteor.userId();
     },
     room: function(){
-      return Rooms.find({_id: Meteor.user().profile.currentRoom});
+      console.log(Rooms.find({_id: Meteor.user().profile.currentRoom}).fetch());
+      return Rooms.findOne({_id: Meteor.user().profile.currentRoom});
     }
   });
 
