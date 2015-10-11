@@ -57,7 +57,7 @@ $(document).ready(function(){
 
     var selectedFriends = $(".user-container.selected");
     for(var i=0; i<selectedFriends.size(); i++) {
-      friends.push($(selectedFriends[i]).attr('id'));
+      friends.push($(selectedFriends[i]).attr('data-id'));
     }
 
     var nameDiv = $("input[name='roomName']");
@@ -71,7 +71,8 @@ $(document).ready(function(){
     };
 
     Meteor.call('createRoom', json, function(err, data){
-
+      Session.set("current-room", data);
+      Router.go("/chatroom");
     });
 
   });
