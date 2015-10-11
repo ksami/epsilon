@@ -71,7 +71,8 @@ $(document).ready(function(){
     };
 
     Meteor.call('createRoom', json, function(err, data){
-
+      Session.set("current-room", data);
+      Router.go("/chatroom");
     });
 
   });
