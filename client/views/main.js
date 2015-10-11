@@ -60,6 +60,7 @@ if(Meteor.isClient){
   });
 
   Template.main.onRendered(function(){
+    //submit vote
     $(".vote-form-submit").click(function() {
       let time = "";
       let venue = "";
@@ -78,10 +79,12 @@ if(Meteor.isClient){
         }
       }
 
+      //process user's vote
       Meteor.call('addVote', {time: time, venue: venue}, function(err, data){
         if(err){
           console.log(err);
         }
+        Router.go("/chatroom");
       });
 
     });
