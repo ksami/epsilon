@@ -16,5 +16,5 @@ Meteor.methods({
 });
 
 Meteor.publish("rooms", function(){
-  return Rooms.find({});
+    return Rooms.find({});
 });
