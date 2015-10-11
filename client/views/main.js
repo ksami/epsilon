@@ -92,6 +92,9 @@ if(Meteor.isClient){
   });
 
   Template.main.helpers({
+    chatrooms: function(){
+      return Rooms.find({}).fetch();
+    },
   	listenNotif:function(){
             serverMessages.listen('serverMessage:info', function (subject, message, options) {
               currentFbId = Meteor.users.findOne(Meteor.users.findOne(Meteor.userId()).profile.facebookDocId).services.facebook.id;

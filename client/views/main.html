@@ -4,30 +4,9 @@
 {{listenNotif}}
     <a href="/lobby" class="btn-floating btn-large waves-effect waves-light darkblue bottom-btn"><i class="material-icons">add</i></a><br><br>
     <ul class="collection">
-      <li class="collection-item avatar">
-        <i class="material-icons circle">assignment_ind</i>
-        <span class="title">Lunch Event</span>
-        <p>Time:<br>
-           Venue:
-        </p>
-        <a href="#!" class="secondary-content grey"><i class="material-icons ">textsms</i></a>
-      </li>
-      <li class="collection-item avatar">
-        <i class="material-icons circle">assignment_ind</i>
-        <span class="title">Lunch Event</span>
-        <p>Time:<br>
-           Venue:
-        </p>
-        <a href="#!" class="secondary-content grey"><i class="material-icons ">textsms</i></a>
-      </li>
-      <li class="collection-item avatar">
-        <i class="material-icons circle">assignment_ind</i>
-        <span class="title">Lunch Event</span>
-        <p>Time:<br>
-           Venue:
-        </p>
-        <a href="#!" class="secondary-content grey"><i class="material-icons ">textsms</i></a>
-      </li>
+      {{#each chatrooms}}
+        {{> chatdisplay}}
+      {{/each}}
     </ul>
 
     <div class="modal" id="voteModal">
@@ -64,4 +43,16 @@
     </div>
 
   </div>
+</template>
+
+
+<template name="chatdisplay">
+  <li class="collection-item avatar">
+    <i class="material-icons circle">assignment_ind</i>
+    <span class="title">{{name}}</span>
+    <p>{{times}}<br>
+       {{venues}}
+    </p>
+    <a href="#!" class="secondary-content grey"><i class="material-icons ">textsms</i></a>
+  </li>
 </template>
