@@ -35,7 +35,7 @@ if(Meteor.isClient){
         '11PM - 12AM'
       ];
 
-      var data = Rooms.find({_id: roomId});
+      var data = Rooms.findOne({_id: roomId});
 
       var times = data.times;
       var venues = data.venues;
@@ -43,16 +43,18 @@ if(Meteor.isClient){
       var timeSelectInput = $('select.time-select');
       var venueSelectInput = $('select.venue-select');
 
-      for(var i=0; i<times.size(); i++) {
+      for(var i=0; i<times.length; i++) {
         var timeSlot = parseInt(times[i]);
         var html = $("<option value='" + timeSlot + "'>" + timeSlots[timeSlot] + "</option>");
         timeSelectInput.append(html);
       }
 
-      for(var i=0; i<venues.size(); i++) {
+      for(var i=0; i<venues.length; i++) {
         var html = $("<option value='" + venues[i] + "'>" + venues[i] + "</option>");
         venueSelectInput.append(html);
       }
+
+      $('#voteModal select').material_select();
 
       $('#voteModal').openModal();
 
